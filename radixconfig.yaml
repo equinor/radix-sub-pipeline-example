@@ -3,11 +3,6 @@ kind: RadixApplication
 metadata:
   name: radix-sub-pipeline-example
 spec:
-  build:
-    variables:
-      VAR1: value1
-      VAR2: value2
-      VAR100: value100
   environments:
     - name: dev
       build:
