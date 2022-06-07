@@ -11,11 +11,10 @@ spec:
         type: string
         stringVal: not-set-var2
     - name: VAR3T
-    - name: VAR4T
       type: string
       default:
         type: string
-        stringVal: not-set-var4
+        stringVal: not-set-var3
   steps:
     - name: show-env-vars-list
       image: alpine
@@ -27,9 +26,7 @@ spec:
         - name: VAR3example
           value: $(params.VAR3T)
         - name: VAR4example
-          value: $(params.VAR4T)
-        - name: VAR5example
-          value: "TestValue5"
+          value: "TestValue4"
       script: |
         #!/usr/bin/env sh
         printenv | grep 'VAR'

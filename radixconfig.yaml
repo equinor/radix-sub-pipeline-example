@@ -17,6 +17,7 @@ spec:
       variables:
         VAR1: value1
         VAR2: value2
+        VAR100: value100
   dnsAppAlias:
     environment: dev
     component: frontend

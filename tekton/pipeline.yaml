@@ -10,12 +10,6 @@ spec:
       default:
         type: string
         stringVal: not-set-var2
-    - name: VAR3
-    - name: VAR4
-      type: string
-      default:
-        type: string
-        stringVal: not-set-var4
   tasks:
     - name: show-env-vars
       params:
@@ -27,13 +21,5 @@ spec:
           value:
             type: string
             stringVal: $(params.VAR2)
-        - name: VAR3T
-          value:
-            type: string
-            stringVal: $(params.VAR3)
-        - name: VAR4T
-          value:
-            type: string
-            stringVal: $(params.VAR4)
       taskRef:
         name: env-vars-list
