@@ -6,10 +6,7 @@ spec:
   environments:
     - name: dev
       build:
-        from: simple-pipeline
-    - name: prod
-      build:
-        from: release
+        from: pipeline-example-with-env-vars
   components:
     - name: frontend
       src: frontend
@@ -18,5 +15,5 @@ spec:
           port: 8001
       publicPort: http
   dnsAppAlias:
-    environment: prod
+    environment: dev
     component: frontend

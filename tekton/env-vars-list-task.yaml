@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: env-vars-list
+spec:
+  params:
+    - name: Var1t
+    - name: Var2t
+      type: string
+      default:
+        type: string
+        stringVal: not-set-var2
+  steps:
+    - name: show-env-vars-list
+      image: alpine
+      env:
+        - name: VAR0example
+          value: "InstantValue0"
+        - name: VAR1example
+          value: $(params.VAR1t)
+        - name: VAR2example
+          value: $(params.VAR2t)
+      script: |
+        #!/usr/bin/env sh
+        printenv | grep 'VAR'

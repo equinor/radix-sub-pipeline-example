@@ -1,9 +1,16 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: pipeline-example
+  name: pipeline-example-with-env-vars
 spec:
+  params:
+    - name: VAR1
+    - name: VAR2
+      type: string
+      default:
+        type: string
+        stringVal: not-set-var2
   tasks:
-    - name: task-example-hello
+    - name: show-env-vars
       taskRef:
-        name: hello
+        name: env-vars-list
