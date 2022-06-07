@@ -14,6 +14,9 @@ spec:
         - name: http
           port: 8001
       publicPort: http
+      variables:
+        VAR1: value1
+        VAR2: value2
   dnsAppAlias:
     environment: dev
     component: frontend

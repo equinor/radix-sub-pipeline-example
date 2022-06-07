@@ -4,22 +4,32 @@ metadata:
   name: env-vars-list
 spec:
   params:
-    - name: Var1t
-    - name: Var2t
+    - name: Var1T
+    - name: Var2T
       type: string
       default:
         type: string
         stringVal: not-set-var2
+    - name: Var3T
+    - name: Var4T
+      type: string
+      default:
+        type: string
+        stringVal: not-set-var4
   steps:
     - name: show-env-vars-list
       image: alpine
       env:
-        - name: VAR0example
-          value: "InstantValue0"
         - name: VAR1example
-          value: $(params.VAR1t)
+          value: $(params.VAR1T)
         - name: VAR2example
-          value: $(params.VAR2t)
+          value: $(params.VAR2T)
+        - name: VAR3example
+          value: $(params.VAR3T)
+        - name: VAR4example
+          value: $(params.VAR4T)
+        - name: VAR5example
+          value: "TestValue5"
       script: |
         #!/usr/bin/env sh
         printenv | grep 'VAR'
