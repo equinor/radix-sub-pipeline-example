@@ -4,6 +4,8 @@ metadata:
   name: radix-sub-pipeline-example
 spec:
   build:
+    secrets:
+      - SECRET1
     variables:
       VAR1: value1
       VAR2: value2
