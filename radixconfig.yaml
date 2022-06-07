@@ -3,6 +3,11 @@ kind: RadixApplication
 metadata:
   name: radix-sub-pipeline-example
 spec:
+  build:
+    variables:
+      VAR1: value1
+      VAR2: value2
+      VAR100: value100
   environments:
     - name: dev
       build:
@@ -14,10 +19,6 @@ spec:
         - name: http
           port: 8001
       publicPort: http
-      variables:
-        VAR1: value1
-        VAR2: value2
-        VAR100: value100
   dnsAppAlias:
     environment: dev
     component: frontend
