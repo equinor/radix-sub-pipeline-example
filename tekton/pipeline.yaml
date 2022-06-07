@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: pipeline-with-multiple-steps
+  name: pipeline-with-multiple-tasks
 spec:
   tasks:
     - name: show-hello
