@@ -31,5 +31,9 @@ spec:
           value:
             type: string
             stringVal: $(params.VAR3)
+        - name: VAR4T
+          value:
+            type: string
+            stringVal: $(params.VAR4)
       taskRef:
         name: env-vars-list

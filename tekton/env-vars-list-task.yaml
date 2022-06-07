@@ -4,14 +4,14 @@ metadata:
   name: env-vars-list
 spec:
   params:
-    - name: Var1T
-    - name: Var2T
+    - name: VAR1T
+    - name: VAR2T
       type: string
       default:
         type: string
         stringVal: not-set-var2
-    - name: Var3T
-    - name: Var4T
+    - name: VAR3T
+    - name: VAR4T
       type: string
       default:
         type: string
