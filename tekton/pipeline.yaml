@@ -4,22 +4,15 @@ metadata:
   name: pipeline-example-with-env-vars
 spec:
   params:
-    - name: VAR1
-    - name: VAR2
-      type: string
-      default: not-set-var2
-    - name: VAR3
-      type: string
-      default: not-set-var3
   tasks:
     - name: show-env-vars
       params:
         - name: VAR1T
-          value: $(params.VAR1)
+          value: "$(params.VAR1)"
         - name: VAR2T
-          value: $(params.VAR2)
+          value: "$(params.VAR2)"
         - name: VAR3T
-          value: $(params.VAR3)
+          value: "ddd"
         - name: VAR4T
           value: value4
       taskRef:
