@@ -6,14 +6,14 @@ spec:
   params:
   tasks:
     - name: show-env-vars
-      params:
-        - name: VAR1T
-          value: "$(params.VAR1)"
-        - name: VAR2T
-          value: "$(params.VAR2)"
-        - name: VAR3T
-          value: "ddd"
-        - name: VAR4T
-          value: value4
+#      params:
+#        - name: VAR1T
+#          value: "$(params.VAR1)"
+#        - name: VAR2T
+#          value: "$(params.VAR2)"
+#        - name: VAR3T
+#          value: "ddd"
+#        - name: VAR4T
+#          value: value4
       taskRef:
         name: env-vars-list
