@@ -4,6 +4,8 @@ metadata:
   name: radix-sub-pipeline-example
 spec:
   build:
+    secrets:
+      - A
     variables:
       VAR1: value1     #it must be set, as it is expected by the pipeline
       VAR2: value2     #it can be set, if it does not exist - the pipeline will set default value
