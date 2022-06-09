@@ -39,5 +39,4 @@ spec:
           value: "value6"         #set explicitly with the value "value6"
       script: |
         #!/usr/bin/env sh
-        echo "test"
         printenv | grep 'VAR'
