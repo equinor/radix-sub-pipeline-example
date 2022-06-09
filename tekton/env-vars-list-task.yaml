@@ -6,16 +6,21 @@ spec:
   params:
     - name: VAR1T                 #it must be set in a pipeline's task params, because it does not have default value
     - name: VAR2T                 #it can be set in a pipeline's task params, if not - used default "not-set-var2-in-task"
-      default: not-set-var2-in-task
+      default:
+        type: string
+        stringVal: not-set-var2-in-task
     - name: VAR3T                 #it can be set in a pipeline's task params, if not - used default "not-set-var3-in-task"
-      type: string
-      default: not-set-var3-in-task
+      default:
+        type: string
+        stringVal: not-set-var3-in-task
     - name: VAR4T                 #it can be set in a pipeline's task params, if not - used default "not-set-var4-in-task"
-      type: string
-      default: not-set-var4-in-task
+      default:
+        type: string
+        stringVal: not-set-var4-in-task
     - name: VAR5T                 #it can be set in a pipeline's task params, if not - used default "not-set-var5-in-task"
-      type: string
-      default: not-set-var5-in-task
+      default:
+        type: string
+        stringVal: not-set-var5-in-task
   steps:
     - name: show-env-vars-list
       image: alpine
@@ -34,4 +39,5 @@ spec:
           value: "value6"         #set explicitly with the value "value6"
       script: |
         #!/usr/bin/env sh
+        echo "test"
         printenv | grep 'VAR'
