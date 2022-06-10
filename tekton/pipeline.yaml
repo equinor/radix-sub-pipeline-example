@@ -13,6 +13,11 @@ spec:
       default:
         type: string
         stringVal: not-set-var3
+    - name: CONNECTION_STRING  #it must be set in the radixconfig.yaml
+    - name: PROD_USER          #it can be set in the radixconfig.yaml, if not - used default empty string
+      default:
+        type: string
+        stringVal: ""
   tasks:
     - name: show-env-vars      #name of the task "env-vars-list" in this pipeline
       params:
@@ -32,5 +37,13 @@ spec:
           value:
             type: string
             stringVal: value4
+        - name: CONNECTION_STRING #set by parameter CONNECTION_STRING, from the radixconfig.yaml
+          value:
+            type: string
+            stringVal: $(params.CONNECTION_STRING)
+        - name: PROD_USER         #set by parameter PROD_USER, from the radixconfig.yaml
+          value:
+            type: string
+            stringVal: $(params.PROD_USER)
       taskRef:
         name: env-vars-list    #task name

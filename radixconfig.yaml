@@ -11,7 +11,16 @@ spec:
   environments:
     - name: dev
       build:
-        from: pipeline-example-with-env-vars
+        from: pipeline-example-with-env-vars-for-envs
+        variables:
+          VAR1: "val1-for-dev"  #overrides common env-var VAR1 in the "dev" external pipeline
+          CONNECTION_STRING: "Provider=MySQLProv;Data Source=devDb;" #overrides common env-var CONNECTION_STRING in the "dev" custom sub-pipeline
+    - name: prod
+      build:
+        from: release
+        variables:
+          PROD_USER: "prod-user" #it exists only in prod environment
+          CONNECTION_STRING: "Provider=MySQLProv;Data Source=prodDb;" #overrides common env-var CONNECTION_STRING in the "prod" custom sub-pipeline
   components:
     - name: frontend
       src: frontend

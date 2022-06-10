@@ -21,6 +21,11 @@ spec:
       default:
         type: string
         stringVal: not-set-var5-in-task
+    - name: CONNECTION_STRING     #it must be set in a pipeline's task params, because it does not have default value
+    - name: PROD_USER             #it can be set in a pipeline's task params, if not - used default "not-set-in-task"
+      default:
+        type: string
+        stringVal: not-set-in-task
   steps:
     - name: show-env-vars-list
       image: alpine
@@ -37,6 +42,10 @@ spec:
           value: $(params.VAR5T)  #set by parameter VAR5T
         - name: VAR6example
           value: "value6"         #set explicitly with the value "value6"
+        - name: ConnectionString
+          value: $(params.CONNECTION_STRING)  #set by parameter CONNECTION_STRING
+        - name: ProdUser
+          value: $(params.PROD_USER)  #set by parameter PROD_USER
       script: |
         #!/usr/bin/env sh
-        printenv | grep 'VAR'
+        printenv | grep -E 'VAR|CONNECTION|USER'
