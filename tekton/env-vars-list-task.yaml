@@ -48,4 +48,4 @@ spec:
           value: $(params.PROD_USER)  #set by parameter PROD_USER
       script: |
         #!/usr/bin/env sh
-        printenv | grep -E 'VAR|CONNECTION|USER'
+        printenv | grep -E 'VAR|Connection|User'
