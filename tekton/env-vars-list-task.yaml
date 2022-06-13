@@ -6,38 +6,41 @@ spec:
   steps:
     - name: show-env-vars-list
       image: alpine
-      env:
-        - name: DbServer
-          valueFrom:
-            secretKeyRef:
-              key: $(radix-secrets.DB_SERVER)
-      envFrom:
-        secretRef:
-          localObjectReference:
-            name: DB_USER
       script: |
         #!/usr/bin/env sh
         printenv | grep "DB"
-        ls /var/pass-volume
-        cat /var/pass-volume/DB_PASSWORD
-        ls /var/cert-volume
-        cat /var/cert-volume/priv/cert.key|head -n 3
-      volumeMounts:
-        - name: volume-with-password
-          mountPath: /var/pass-volume          #mount this volume to a folder "/var/task-volume"
-        - name: volume-cert
-          mountPath: /var/cert-volume          #mount this volume to a folder "/var/task-volume"
-  volumes:
-    - name: volume-with-password  #a volume, which can be shared between task steps
-      volumeSource:
-        secret:
-          secretName: $(radix-secrets.DB_PASSWORD)
-    - name: volume-cert
-      volumeSource:
-        secret:
-          secretName: $(radix-secrets.CERT_KEY)
-            items:
-              key: "CERT_KEY"
-              path: "priv/cert.key"
-
-
+#      env:
+#        - name: DbServer
+#          valueFrom:
+#            secretKeyRef:
+#              key: $(radix-secrets.DB_SERVER)
+#      envFrom:
+#        secretRef:
+#          localObjectReference:
+#            name: DB_USER
+#      script: |
+#        #!/usr/bin/env sh
+#        printenv | grep "DB"
+#        ls /var/pass-volume
+#        cat /var/pass-volume/DB_PASSWORD
+#        ls /var/cert-volume
+#        cat /var/cert-volume/priv/cert.key|head -n 3
+#      volumeMounts:
+#        - name: volume-with-password
+#          mountPath: /var/pass-volume          #mount this volume to a folder "/var/task-volume"
+#        - name: volume-cert
+#          mountPath: /var/cert-volume          #mount this volume to a folder "/var/task-volume"
+#  volumes:
+#    - name: volume-with-password  #a volume, which can be shared between task steps
+#      volumeSource:
+#        secret:
+#          secretName: $(radix-secrets.DB_PASSWORD)
+#    - name: volume-cert
+#      volumeSource:
+#        secret:
+#          secretName: $(radix-secrets.CERT_KEY)
+#            items:
+#              key: "CERT_KEY"
+#              path: "priv/cert.key"
+#
+#
