@@ -1,10 +1,10 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: env-vars-list
+  name: use-secrets-for-db
 spec:
   steps:
-    - name: show-env-vars-list
+    - name: show-secrets
       image: alpine
       script: |
         #!/usr/bin/env sh
