@@ -8,6 +8,7 @@ spec:
       - DB_SERVER
       - DB_PASSWORD
       - CERT_PRIV_KEY
+      - CERT_PUB_KEY
       - DB_USER
   environments:
     - name: dev
