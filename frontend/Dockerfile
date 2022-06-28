@@ -1,4 +1,4 @@
-FROM nginxinc/nginx-unprivileged:1.22-alpinenginxinc/nginx-unprivileged:1.22-alpine
+FROM nginxinc/nginx-unprivileged:1.22-alpine
 
 WORKDIR /app
 COPY /app .
